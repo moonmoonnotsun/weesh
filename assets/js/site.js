@@ -629,11 +629,21 @@
     function initNav() {
         var nav = $('#nav');
         var dark = $$('.hero, .final, .footer');
+        var links = $$('.nav-links a');
         function update() {
             nav.classList.toggle('scrolled', window.scrollY > 10);
             var onDark = false;
             dark.forEach(function (s) { var r = s.getBoundingClientRect(); if (r.top <= 40 && r.bottom >= 40) onDark = true; });
             nav.classList.toggle('on-light', !onDark && window.scrollY > 10);
+            var current = null;
+            links.forEach(function (a) {
+                var id = (a.getAttribute('href') || '').replace('#', '');
+                var el = id && document.getElementById(id);
+                if (!el) return;
+                var r = el.getBoundingClientRect();
+                if (r.top <= 140 && r.bottom > 140) current = a;
+            });
+            links.forEach(function (a) { a.classList.toggle('is-on', a === current); });
         }
         window.addEventListener('scroll', update, { passive: true });
         update();

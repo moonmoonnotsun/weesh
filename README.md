@@ -12,8 +12,11 @@ python3 -m http.server 8080
 ## Files
 
 - `index.html` - the page
+- `pitch/index.html` - investor deck at `/pitch`
 - `assets/css/site.css` - all styles
+- `assets/css/pitch.css` - deck styles
 - `assets/js/site.js` - hero wish demo, phone screens, star sky, waitlist
+- `assets/js/pitch.js` - slide navigation
 - `assets/js/data.js` - generated: wish tag dictionary and cover photos from the app
 - `credits.html` - photo credits (Wikimedia Commons, required by the CC licences)
 
