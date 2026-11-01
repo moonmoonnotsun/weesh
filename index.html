@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Weesh - Every wish gets one real plan near you</title>
+    <meta name="description" content="Weesh keeps the things you've meant to do for years and comes back with one real step for each: a place, a time, a link. Not a feed. Not a list that dies.">
+    <meta name="theme-color" content="#050A1C">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://weeesh.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://weeesh.app/">
+    <meta property="og:title" content="Weesh - Every wish gets one real plan near you">
+    <meta property="og:description" content="Write the wish. Get one real step: a place, a time, a link.">
+    <meta property="og:image" content="https://weeesh.app/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Weesh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weesh - Every wish gets one real plan near you">
+    <meta name="twitter:description" content="Write the wish. Get one real step: a place, a time, a link.">
+    <meta name="twitter:image" content="https://weeesh.app/assets/img/og.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="nav" id="nav">
+        <div class="nav-inner">
+            <a class="brand" href="#top" aria-label="Weesh home">
+                <img src="assets/img/icon-256.png" alt="" width="32" height="32">
+                <span>Weesh</span>
+            </a>
+            <nav class="nav-links" aria-label="Sections">
+                <a href="#how">Product</a>
+                <a href="#landscape">The gap</a>
+                <a href="#promises">Principles</a>
+            </nav>
+            <a class="btn btn-small btn-glow" href="#contact">Get in touch</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+            <div class="aurora" aria-hidden="true"></div>
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <span class="eyebrow-pill">
+                        <span class="live-dot"></span>
+                        Building now · iPhone first
+                    </span>
+                    <h1 class="display">Every wish gets <em>one real plan</em> near you.</h1>
+                    <p class="lead">People keep lists of things they've wanted to do for years. Weesh turns each one into a single step you can actually take: a place, a time, a link. And when nothing real fits yet, it says so.</p>
+
+                    <form class="wish-input" id="heroWish" autocomplete="off">
+                        <img class="wi-spark" src="assets/img/spark.png" alt="" width="22" height="22">
+                        <label class="sr-only" for="heroWishText">Type a wish</label>
+                        <input id="heroWishText" name="wish" maxlength="80" spellcheck="false">
+                        <button type="submit" class="wi-send" aria-label="Make the wish">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                        </button>
+                    </form>
+                    <div class="hero-try" id="heroTry">
+                        <span>Try it:</span>
+                        <button type="button" data-wish="Try bouldering">Try bouldering</button>
+                        <button type="button" data-wish="Learn to dance salsa">Learn to dance salsa</button>
+                        <button type="button" data-wish="Go hear some jazz">Go hear some jazz</button>
+                        <button type="button" data-wish="See Japan">See Japan</button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="float-card notif" aria-hidden="true">
+                        <img src="assets/img/icon-256.png" alt="" width="38" height="38">
+                        <div>
+                            <div class="notif-top"><b>WEESH</b><span>Fri 17:00</span></div>
+                            <div class="notif-title">Your steps for this week are ready</div>
+                            <div class="notif-body">One real place for each wish. Tap to watch.</div>
+                        </div>
+                    </div>
+                    <div class="phone phone-hero" id="heroPhone">
+                        <div class="phone-screen"><div class="app" id="heroApp"></div></div>
+                    </div>
+                    <div class="float-card result" id="heroResult" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIBBON -->
+        <section class="ribbon" aria-label="Wishes people write">
+            <div class="ribbon-row" data-dir="left"></div>
+            <div class="ribbon-row" data-dir="right"></div>
+        </section>
+
+        <!-- PROBLEM -->
+        <section class="problem" id="problem">
+            <div class="container problem-grid">
+                <div class="notes-card" data-reveal>
+                    <div class="notes-head">
+                        <span class="notes-back">‹ Notes</span>
+                        <span class="notes-dots">•••</span>
+                    </div>
+                    <h3 class="notes-title">Someday</h3>
+                    <ul class="notes-list">
+                        <li><span>Learn to dance salsa</span><time>added 2021</time></li>
+                        <li><span>Try climbing</span><time>added 2022</time></li>
+                        <li><span>See Japan</span><time>added 2019</time></li>
+                        <li><span>Pottery class???</span><time>added 2023</time></li>
+                        <li><span>Find really good ramen</span><time>added 2024</time></li>
+                        <li><span>Try kayaking</span><time>added 2022</time></li>
+                    </ul>
+                    <div class="notes-foot">6 wishes · 0 done</div>
+                </div>
+                <div class="problem-copy">
+                    <p class="kicker">The problem</p>
+                    <h2 class="h2">Wishes die in a notes app.</h2>
+                    <p class="kinetic" id="kinetic">Most people can name five things they have meant to do for years. Try climbing. Learn to dance. See Japan. The next step is usually already for sale nearby: a class, a ticket, a trip. They miss it because they are not searching the week it's bookable. Search answers when you ask. A notes app keeps the sentence. And the wish quietly expires.</p>
+                </div>
+            </div>
+            <div class="container contrast" data-reveal>
+                <div class="contrast-item">
+                    <span class="contrast-label">Search &amp; AI chat</span>
+                    <p>Answer whatever you type <em>right now</em>.</p>
+                </div>
+                <div class="contrast-vs">vs</div>
+                <div class="contrast-item is-weesh">
+                    <span class="contrast-label"><img src="assets/img/spark.png" alt="" width="14" height="14"> Weesh</span>
+                    <p>Remembers the wish you wrote <em>months ago</em>, and brings it back the week it's possible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how" id="how">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <p class="kicker">The product</p>
+                    <h2 class="h2">From a sentence <em>to a Saturday.</em></h2>
+                </div>
+                <div class="how-grid">
+                    <div class="how-steps">
+                        <article class="step" data-step="0">
+                            <span class="step-num">01</span>
+                            <h3>Say it in your own words.</h3>
+                            <p>“Try padel”, “I want to climb”, “Find great ramen”. Weesh saves the sentence exactly as written. It asks one question only when the plan would be wrong without it, like whether you're new to climbing.</p>
+                            <ul class="step-tags"><li>Your own words</li><li>One question, max</li><li>No chat to scroll</li></ul>
+                            <div class="step-phone" aria-hidden="true"></div>
+                        </article>
+                        <article class="step" data-step="1">
+                            <span class="step-num">02</span>
+                            <h3>It looks for one real step.</h3>
+                            <p>Not ten options. One place that fits the wish, picked from a checked catalog of real venues. Each wish shows an honest status: <b class="t-search">Searching</b> or <b class="t-ready">Step ready</b>.</p>
+                            <ul class="step-tags"><li>One place per wish</li><li>Only real places</li><li>Never a filler</li></ul>
+                            <div class="step-phone" aria-hidden="true"></div>
+                        </article>
+                        <article class="step" data-step="2">
+                            <span class="step-num">03</span>
+                            <h3>Friday, 17:00. Your week arrives.</h3>
+                            <p>Three steps, shown like stories. What's ready for your wishes this weekend: the place, how far it is, the hours, and where the info came from.</p>
+                            <ul class="step-tags"><li>3 steps a week</li><li>Distance &amp; hours</li><li>Source on every card</li></ul>
+                            <div class="step-phone" aria-hidden="true"></div>
+                        </article>
+                        <article class="step" data-step="3">
+                            <span class="step-num">04</span>
+                            <h3>Go, or pass.</h3>
+                            <p>Get directions and go. Or say “too far”, “not this”, “later”, and the wish goes back to looking. Done wishes become your month in review, the thing people share.</p>
+                            <ul class="step-tags"><li>Directions in one tap</li><li>“Not this” is fine</li><li>Month recap</li></ul>
+                            <div class="step-phone" aria-hidden="true"></div>
+                        </article>
+                    </div>
+                    <div class="how-stage">
+                        <div class="phone phone-how" id="howPhone">
+                            <div class="phone-screen"><div class="app" id="howApp"></div></div>
+                        </div>
+                        <div class="how-dots" id="howDots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANDSCAPE -->
+        <section class="landscape" id="landscape">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <p class="kicker">The gap</p>
+                    <h2 class="h2">Everyone answers. <em>Nobody holds the wish.</em></h2>
+                </div>
+                <div class="lane-list">
+                    <div class="lane" data-reveal><b>Google Ask Maps, ChatGPT</b><span>Answer whatever you type, when you type it.</span></div>
+                    <div class="lane" data-reveal><b>Fever, Eventbrite, Airbnb Experiences</b><span>Show what has a ticket. You have to go looking.</span></div>
+                    <div class="lane" data-reveal><b>Timeleft</b><span>Sells one format, dinner with strangers.</span></div>
+                    <div class="lane" data-reveal><b>Bucket-list apps</b><span>Store the sentence and stop there.</span></div>
+                    <div class="lane lane-weesh" data-reveal><b><img src="assets/img/spark.png" alt="" width="18" height="18"> Weesh</b><span>Starts from the wish you already wrote. Holds it until one real step exists, then shows exactly that step.</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMISES -->
+        <section class="promises" id="promises">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <p class="kicker">Product principles</p>
+                    <h2 class="h2">Built on <em>six promises.</em></h2>
+                </div>
+                <div class="promise-grid">
+                    <article class="promise" data-reveal>
+                        <div class="promise-art art-feed" aria-hidden="true"><i></i><i></i><i></i><s></s></div>
+                        <h3>No feed.</h3>
+                        <p>There is nothing to scroll. The list is the product. With no wishes, Weesh has nothing to show you.</p>
+                    </article>
+                    <article class="promise" data-reveal>
+                        <div class="promise-art art-one" aria-hidden="true"><b>1</b></div>
+                        <h3>One step, not ten options.</h3>
+                        <p>Choosing is the hard part. One place per wish. Pass on it, and the wish looks again.</p>
+                    </article>
+                    <article class="promise" data-reveal>
+                        <div class="promise-art art-still" aria-hidden="true"><span class="chip waiting"><i></i>Still looking</span></div>
+                        <h3>“Still looking” is an answer.</h3>
+                        <p>If nothing real fits yet, the wish waits. No stand-in suggestion just to look busy.</p>
+                    </article>
+                    <article class="promise" data-reveal>
+                        <div class="promise-art art-plane" aria-hidden="true">✈︎</div>
+                        <h3>Japan waits for a real flight.</h3>
+                        <p>Big wishes don't get swapped for “visit a museum this weekend”. They wait for a step that actually moves them.</p>
+                    </article>
+                    <article class="promise" data-reveal>
+                        <div class="promise-art art-pin" aria-hidden="true"><span></span></div>
+                        <h3>It can't make places up.</h3>
+                        <p>The model can only return an id from a checked catalog. Every card shows where its info came from and when.</p>
+                    </article>
+                    <article class="promise" data-reveal>
+                        <div class="promise-art art-lock" aria-hidden="true"><span></span></div>
+                        <h3>The list stays on the phone.</h3>
+                        <p>No account needed. Wishes and the visit log live on the device. Weesh never books or pays on your behalf.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="final" id="contact">
+            <canvas class="sky" id="sky2" aria-hidden="true"></canvas>
+            <div class="container final-inner">
+                <img class="final-icon" src="assets/img/icon-256.png" alt="" width="88" height="88">
+                <h2 class="display display-final">Make a <em>wish.</em></h2>
+                <p class="lead lead-center">We're raising a pre-seed round to put Weesh in people's hands. If you invest in consumer products, we'd love to talk.</p>
+                <div class="final-actions">
+                    <a class="btn btn-glow" href="mailto:dev.ohmyapp@gmail.com?subject=Weesh%20-%20investor%20intro">Email the founder</a>
+                    <a class="btn btn-ghost" href="#top">Try the demo again</a>
+                </div>
+                <div class="final-divider"><span>or get early access</span></div>
+                <form class="join-form" id="joinForm" novalidate>
+                    <label class="sr-only" for="joinEmail">Email</label>
+                    <input id="joinEmail" type="email" name="email" placeholder="you@email.com" required autocomplete="email">
+                    <button class="btn btn-blue" type="submit">Join the waitlist</button>
+                </form>
+                <p class="form-msg" id="joinMsg" role="status"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="assets/img/icon-256.png" alt="" width="36" height="36">
+                <div>
+                    <b>Weesh</b>
+                    <span>Every wish gets one real plan near you.</span>
+                </div>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="#how">Product</a>
+                <a href="#landscape">The gap</a>
+                <a href="#promises">Principles</a>
+                <a href="credits.html">Photo credits</a>
+                <a href="mailto:dev.ohmyapp@gmail.com">Contact</a>
+            </nav>
+        </div>
+        <div class="wordmark" aria-hidden="true">weesh</div>
+        <p class="container footer-fine">© 2026 Weesh. Photos from Wikimedia Commons contributors (<a href="credits.html">credits</a>).</p>
+    </footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/site.js"></script>
+</body>
+</html>

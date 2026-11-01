@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo credits - Weesh</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://weeesh.app/credits.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="page">
+    <header class="nav scrolled">
+        <div class="nav-inner">
+            <a class="brand" href="./"><img src="assets/img/icon-256.png" alt="" width="32" height="32"><span>Weesh</span></a>
+            <a class="btn btn-small btn-glow" href="./#contact">Get in touch</a>
+        </div>
+    </header>
+    <main class="container prose">
+        <h1>Photo credits</h1>
+        <p>Wish photos on this site come from Wikimedia Commons. Thank you to every photographer below. Licences are listed with each photo; follow the link for the original file.</p>
+        <ul class="credit-list" id="credits"></ul>
+    </main>
+    <script src="assets/js/data.js"></script>
+    <script>
+        (function () {
+            var D = window.WEESH_DATA, list = document.getElementById('credits');
+            var labels = {};
+            D.tags.forEach(function (t) { labels[t.id] = t.label; });
+            list.innerHTML = Object.keys(D.covers).map(function (tag) {
+                var c = D.covers[tag];
+                var esc = function (s) { return String(s).replace(/[&<>"]/g, function (x) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[x]; }); };
+                return '<li><img src="' + c.src + '" alt="" loading="lazy"><div><b>' + esc(labels[tag] || tag) + '</b><br>' + esc(c.credit) +
+                    '<br><a href="' + esc(c.page) + '" target="_blank" rel="noopener">Wikimedia Commons</a></div></li>';
+            }).join('');
+        })();
+    </script>
+</body>
+</html>
