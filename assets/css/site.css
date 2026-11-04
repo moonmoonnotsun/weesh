@@ -724,7 +724,7 @@ em { font-style: normal; }
 .art-feed i { display: block; height: 18px; border-radius: 6px; background: var(--surface); }
 .art-feed i:first-child { background: linear-gradient(90deg, #5ba3ff, #1373fe); }
 .art-one b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 92px; line-height: 1; color: var(--blue-2); }
-.art-still .chip { font-size: 15px; padding: 8px 14px; }
+.art-still .chip { font-size: 15px; padding: 8px 14px; align-self: center; }
 .art-plane { font-size: 56px; color: var(--blue-2); animation: fly 4s ease-in-out infinite; }
 @keyframes fly { 50% { transform: translate(14px, -8px) rotate(-6deg); } }
 .art-pin span { width: 46px; height: 46px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: linear-gradient(135deg, #5ba3ff, #1373fe); box-shadow: 0 10px 20px -6px rgba(19, 115, 254, .7); position: relative; }
