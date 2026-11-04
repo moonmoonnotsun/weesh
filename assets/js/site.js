@@ -127,7 +127,7 @@
             '</div><div class="banner-text"><b>' + ready.length + (ready.length === 1 ? ' step' : ' steps') + ' ready this week</b><span>One real place for each wish</span></div>' +
             '<div class="banner-watch">' + ICONS.play + 'Watch</div></div>' : '';
         return statusBar() +
-            '<div class="app-body"><div class="app-head"><div class="app-title">' + esc(o.title) + '</div><div class="app-add">+</div></div>' +
+            '<div class="app-body"><div class="app-head"><div class="app-title">' + esc(o.title) + '</div><div class="app-add" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div></div>' +
             banner +
             '<div class="segment"><span class="on">Active · ' + o.wishes.length + '</span><span>Done · ' + o.done + '</span></div>' +
             '<div class="tile-grid">' + o.wishes.map(function (w, i) { return tileHtml(w, o.extra && o.extra[i]); }).join('') +
@@ -164,12 +164,14 @@
 
         hero.form.addEventListener('submit', function (e) {
             e.preventDefault();
-            submitWish(hero.input.value);
+            submitWish(hero.input.value, 'typed');
         });
         $$('#heroTry button').forEach(function (b) {
             b.addEventListener('click', function () {
                 if (hero.busy) return;
-                typeInto(b.getAttribute('data-wish')).then(function () { submitWish(hero.input.value); });
+                var chip = b.getAttribute('data-wish');
+                if (window.WeeshAnalytics) WeeshAnalytics.track('wish_chip_clicked', { chip: chip });
+                typeInto(chip).then(function () { submitWish(hero.input.value, 'chip'); });
             });
         });
         cyclePlaceholder();
@@ -239,9 +241,22 @@
         return msgs.lastElementChild;
     }
 
-    function submitWish(raw) {
+    function submitWish(raw, source) {
         var text = (raw || '').trim().replace(/\s+/g, ' ');
         if (hero.busy) return;
+        var tag = text ? (matchWishTags(text)[0] || '') : '';
+        var junk = text && (/^(hi|hello|hey|ok|okay|привет|привіт|ок|cześć|czesc|siema|test)[!. ]*$/i.test(text) || text.length < 3);
+        var existing = tag && hero.wishes.filter(function (w) { return w.tag === tag; })[0];
+        var step = tag ? exampleStep(tag, text) : null;
+        var outcome = !text ? 'empty' : junk ? 'junk' : existing ? 'duplicate' : (LEVEL_TAGS[tag] ? 'level_question' : (step ? 'step' : 'waiting'));
+        if (window.WeeshAnalytics) {
+            WeeshAnalytics.track('wish_submitted', {
+                source: source || 'typed',
+                tag: tag || 'none',
+                outcome: outcome,
+                length: text.length
+            });
+        }
         if (!text) {
             hero.form.classList.remove('shake');
             void hero.form.offsetWidth;
@@ -254,10 +269,6 @@
         hero.input.value = '';
         hero.input.blur();
 
-        var tag = matchWishTags(text)[0] || '';
-        var junk = /^(hi|hello|hey|ok|okay|привет|привіт|ок|cześć|czesc|siema|test)[!. ]*$/i.test(text) || text.length < 3;
-        var existing = tag && hero.wishes.filter(function (w) { return w.tag === tag; })[0];
-        var step = tag ? exampleStep(tag, text) : null;
         var display = text.charAt(0).toUpperCase() + text.slice(1);
 
         var reply;
@@ -554,14 +565,12 @@
             $('.step-phone', step).innerHTML = '<div class="phone"><div class="phone-screen"><div class="app"><div class="screen active' + (i === 0 ? ' chat-open' : '') + '" data-i="' + i + '">' + screens[i] + '</div></div></div></div>';
         });
 
-        var dots = $$('#howDots i');
         var current = -1;
         function activate(i) {
             if (i === current) return;
             current = i;
             $$('.screen', app).forEach(function (s, k) { s.classList.toggle('active', k === i); });
             $$('.step').forEach(function (s, k) { s.classList.toggle('active', k === i); });
-            dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
             animateScreen($('.screen[data-i="' + i + '"]', app), i);
         }
         activate(0);
@@ -592,6 +601,7 @@
                 msg.className = 'form-msg err';
                 msg.textContent = 'That email doesn\'t look right.';
                 $('#joinEmail').focus();
+                if (window.WeeshAnalytics) WeeshAnalytics.track('waitlist_submitted', { result: 'invalid' });
                 return;
             }
             var wishes = hero.wishes.map(function (w) { return w.text; });
@@ -610,10 +620,14 @@
                 });
             send.then(function () {
                 try { localStorage.setItem('weesh_joined', '1'); } catch (err) { /* private mode */ }
+                if (window.WeeshAnalytics) {
+                    WeeshAnalytics.track('waitlist_submitted', { result: WAITLIST_ENDPOINT ? 'saved' : 'mailto' });
+                }
                 done();
             }).catch(function () {
                 msg.className = 'form-msg err';
                 msg.innerHTML = 'Couldn\'t save that. Email us at <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.';
+                if (window.WeeshAnalytics) WeeshAnalytics.track('waitlist_submitted', { result: 'error' });
             });
         });
 

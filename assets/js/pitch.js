@@ -29,7 +29,12 @@
             s.hidden = !on;
         });
         dotBtns.forEach(function (d, k) { d.classList.toggle('is-on', k === n); });
+        var changed = n !== i || !go.seen;
         i = n;
+        go.seen = true;
+        if (changed && window.WeeshAnalytics) {
+            WeeshAnalytics.slide(n + 1, slides[n].getAttribute('aria-label') || '');
+        }
         bar.style.width = ((n + 1) / total * 100) + '%';
         counter.textContent = String(n + 1).padStart(2, '0');
         prev.disabled = n === 0;
