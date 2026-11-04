@@ -138,7 +138,7 @@ h2 { font-size: clamp(36px, 5.4vw, 72px); max-width: 16ch; }
 .kpis li { padding-top: 16px; border-top: 1px solid var(--line); color: var(--mute); font-size: 15px; }
 .kpis b { display: block; color: #fff; font-size: clamp(36px, 4vw, 52px); letter-spacing: -0.05em; margin-bottom: 6px; }
 
-.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 48px 0 0; max-width: 640px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin: 48px 0 0; max-width: 860px; }
 .stats b { display: block; font-size: clamp(56px, 7vw, 88px); letter-spacing: -0.07em; line-height: .85; }
 .stats span { display: block; margin-top: 12px; color: var(--mute); font-size: 16px; max-width: 12em; }
 
