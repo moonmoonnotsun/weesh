@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Weesh</title>
-    <meta name="description" content="Each wish you wrote gets one real plan near you.">
-    <meta name="theme-color" content="#05060c">
+    <title>Weesh - Investor presentation</title>
+    <meta name="description" content="People have things they want to do. Weesh helps them actually do them. Pre-seed presentation.">
+    <meta name="theme-color" content="#050a1c">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://weeesh.app/pitch/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://weeesh.app/pitch/">
     <meta property="og:title" content="Weesh">
-    <meta property="og:description" content="Each wish you wrote gets one real plan near you.">
+    <meta property="og:description" content="Every wish deserves a real-world next step.">
     <meta property="og:image" content="https://weeesh.app/assets/img/icon-1024.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Weesh">
-    <meta name="twitter:description" content="Each wish you wrote gets one real plan near you.">
+    <meta name="twitter:description" content="Every wish deserves a real-world next step.">
     <meta name="twitter:image" content="https://weeesh.app/assets/img/icon-1024.png">
 
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
@@ -24,163 +24,308 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
     <link rel="stylesheet" href="../assets/css/pitch.css">
 </head>
-<body>
+<body class="pitch">
     <a class="skip" href="#deck">Skip to deck</a>
-    <div class="grain" aria-hidden="true"></div>
+
+    <div class="backdrop" aria-hidden="true">
+        <canvas class="sky" id="sky"></canvas>
+        <div class="aurora"></div>
+    </div>
 
     <header class="top">
         <div class="brand">
-            <img src="../assets/img/icon-256.png" alt="" width="22" height="22">
+            <img src="../assets/img/icon-256.png" alt="" width="26" height="26">
             <span>Weesh</span>
         </div>
-        <span class="counter" id="counter" aria-live="polite">01</span>
+        <span class="counter"><b id="counter">01</b> / 12</span>
     </header>
     <div class="progress" aria-hidden="true"><i id="bar"></i></div>
 
     <main class="deck" id="deck" tabindex="0">
 
-        <section class="slide is-on s-title" data-slide="1" aria-label="Title">
-            <div class="slide-pad">
-                <h1>Each wish you wrote gets <em>one real plan</em> near you.</h1>
-                <p class="who">Vlad Zinchenko</p>
-            </div>
-        </section>
-
-        <section class="slide s-problem" data-slide="2" aria-label="Problem" hidden>
-            <div class="slide-pad">
-                <p class="meta">01 / Problem</p>
-                <h2>People keep the wish.<br><em>They never take the step.</em></h2>
-                <div class="problem-row">
-                    <p class="quote">“I want to try climbing.”</p>
-                    <p class="said">Written years ago. Still sitting there. The intro class is already for sale. They miss it because they are not searching the week it is bookable.</p>
+        <!-- 1 · Cover -->
+        <section class="slide is-on s-cover" data-slide="1" aria-label="Cover">
+            <div class="slide-pad split">
+                <div class="copy">
+                    <p class="eyebrow-pill a" style="--d:0"><img src="../assets/img/spark.png" alt="" width="14" height="14" class="pill-spark">Pre-seed · iOS app</p>
+                    <h1 class="display a" style="--d:1">Every wish deserves a <em><span class="nw">real-world</span> next step.</em></h1>
+                    <p class="lead a" style="--d:2">One wish in. One real plan out.</p>
+                    <p class="who a" style="--d:3"><b>Vlad Zinchenko</b> · Founder</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="slide s-product" data-slide="3" aria-label="Product" hidden>
-            <div class="slide-pad">
-                <p class="meta">02 / Product</p>
-                <h2>The wish comes back as <em>one step.</em></h2>
-                <div class="product">
-                    <div class="wish-line">
-                        <span>Wish</span>
-                        <b>I want to try climbing</b>
-                    </div>
-                    <article class="plan">
-                        <img src="../assets/img/covers/climbing.jpg" alt="">
+                <div class="visual a" style="--d:2">
+                    <div class="phone phone-cover"><div class="phone-screen"><div class="app" data-screen="home"></div></div></div>
+                    <div class="float-card notif cover-notif">
+                        <img src="../assets/img/icon-256.png" alt="" width="38" height="38">
                         <div>
-                            <p class="ready">Step ready</p>
-                            <h3>Beginner bouldering intro</h3>
-                            <p class="facts">Saturday · 1.4 km · $12 · Book</p>
+                            <div class="notif-top"><b>WEESH</b><span>Fri 17:00</span></div>
+                            <div class="notif-title">Your steps for this week are ready</div>
+                            <div class="notif-body">One real place for each wish.</div>
                         </div>
-                    </article>
-                    <p class="after">You go, or you pass. “See Japan” waits for a real flight. Ask what to do this weekend, and it suggests a few real places.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="slide" data-slide="4" aria-label="Why now" hidden>
+        <!-- 2 · Problem -->
+        <section class="slide" data-slide="2" aria-label="Problem" hidden>
+            <div class="slide-pad split split-rev">
+                <div class="visual a" style="--d:1">
+                    <div class="notes-card fading">
+                        <div class="notes-head"><span>‹ Notes</span><span>Done</span></div>
+                        <div class="notes-title"><b>Someday</b></div>
+                        <ul class="notes-list">
+                            <li><span>Learn to dance salsa</span><time>added 2021</time></li>
+                            <li><span>Try climbing</span><time>added 2022</time></li>
+                            <li><span>See Japan</span><time>added 2019</time></li>
+                            <li><span>Try yoga</span><time>added 2023</time></li>
+                            <li><span>See a stand-up show</span><time>added 2024</time></li>
+                            <li><span>Try kayaking</span><time>added 2022</time></li>
+                        </ul>
+                        <div class="notes-foot">6 wishes · 0 done</div>
+                    </div>
+                </div>
+                <div class="copy">
+                    <p class="kicker a" style="--d:0">Problem</p>
+                    <h2 class="h a" style="--d:1">People save experiences. <em>They rarely follow through.</em></h2>
+                    <ol class="flow a" style="--d:2">
+                        <li><b>Discover</b><span>Maps, notes, social apps, friends.</span></li>
+                        <li><b>Save</b><span>The idea is kept. The plan is not.</span></li>
+                        <li class="dim"><b>Forget</b><span>No time, no next step. The wish goes quiet.</span></li>
+                    </ol>
+                    <p class="fine a" style="--d:3">Sheeran &amp; Webb, 2016: intentions fail without a concrete plan. Arival &amp; Phocuswright, 2026: people who book an experience ahead usually already knew what they wanted.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 · Insight -->
+        <section class="slide" data-slide="3" aria-label="Insight" hidden>
+            <div class="slide-pad center">
+                <p class="kicker a" style="--d:0">Insight</p>
+                <h2 class="h a" style="--d:1">The missing layer is between <em>intention and action.</em></h2>
+                <ol class="bridge a" style="--d:2">
+                    <li><span class="node">Intention</span><small>Something they already want to do</small></li>
+                    <li class="gap"><span class="node node-weesh"><img src="../assets/img/spark.png" alt="" width="16" height="16">Weesh</span><small>A real opportunity, at a moment they can act</small></li>
+                    <li><span class="node">Action</span><small>They go</small></li>
+                </ol>
+                <div class="contrast a" style="--d:3">
+                    <div class="contrast-item">
+                        <span class="contrast-label">Search &amp; AI chat</span>
+                        <p>Answer whatever you type <em>right now.</em></p>
+                    </div>
+                    <span class="contrast-vs">vs</span>
+                    <div class="contrast-item is-weesh">
+                        <span class="contrast-label">Weesh</span>
+                        <p>Remembers the wish you wrote <em>months ago,</em> and comes back when there is a plan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Product -->
+        <section class="slide" data-slide="4" aria-label="Product" hidden>
             <div class="slide-pad">
-                <p class="meta">03 / Why now</p>
-                <h2>Search got cheap. <em>Memory did not get built.</em></h2>
-                <ol class="why">
-                    <li><b>01</b><div><strong>A vague wish costs a fraction of a cent to parse.</strong><span>That was not true three years ago.</span></div></li>
-                    <li><b>02</b><div><strong>Places IDs are free.</strong><span>One details call per venue fills a city catalog.</span></div></li>
-                    <li><b>03</b><div><strong>Ask Maps proved the query.</strong><span>March 2026. 150+ countries by August. It answers only when you ask.</span></div></li>
-                    <li><b>04</b><div><strong>People are done with feeds.</strong><span>Discovery guesses. We start from a sentence they already wrote.</span></div></li>
+                <div class="head-row">
+                    <div>
+                        <p class="kicker a" style="--d:0">Product</p>
+                        <h2 class="h a" style="--d:1">One saved wish becomes <em>one plan.</em></h2>
+                    </div>
+                </div>
+                <ol class="trio">
+                    <li class="a" style="--d:2">
+                        <div class="phone phone-sm"><div class="phone-screen"><div class="app" data-screen="chat"></div></div></div>
+                        <b><i>01</i> Say it</b>
+                        <span>In their own words. Weesh keeps the wish.</span>
+                    </li>
+                    <li class="a" style="--d:3">
+                        <div class="phone phone-sm"><div class="phone-screen"><div class="app" data-screen="found"></div></div></div>
+                        <b><i>02</i> Weesh finds one real place</b>
+                        <span>Only places it already knows. If nothing fits yet, it keeps searching.</span>
+                    </li>
+                    <li class="a" style="--d:4">
+                        <div class="phone phone-sm"><div class="phone-screen"><div class="app" data-screen="place"></div></div></div>
+                        <b><i>03</i> They go</b>
+                        <span>A place, a time, and the venue’s own link.</span>
+                    </li>
                 </ol>
             </div>
         </section>
 
-        <section class="slide s-econ" data-slide="5" aria-label="Economics" hidden>
-            <div class="slide-pad">
-                <p class="meta">04 / Economics</p>
-                <h2>Cost grows with <em>cities, not users.</em></h2>
-                <div class="econ">
-                    <div>
-                        <p class="big">$0.64</p>
-                        <p class="lab">Live grounded search / user / month</p>
-                    </div>
-                    <div class="vs">64×</div>
-                    <div class="us">
-                        <p class="big">$0.01</p>
-                        <p class="lab">City catalog / user / month</p>
-                    </div>
+        <!-- 5 · In the app -->
+        <section class="slide" data-slide="5" aria-label="Demonstration" hidden>
+            <div class="slide-pad split split-rev">
+                <div class="visual a" style="--d:1">
+                    <div class="phone phone-story"><div class="phone-screen"><div class="app" data-screen="story"></div></div></div>
                 </div>
-                <p class="fine">Gemini Grounding: $14 / 1,000 search queries. A catalog is about $10 to fill once. Then the model can only return an id. It cannot invent a place.</p>
+                <div class="copy">
+                    <p class="kicker a" style="--d:0">In the app</p>
+                    <h2 class="h a" style="--d:1">From “I want to…” to <em>“here is a place.”</em></h2>
+                    <dl class="anatomy a" style="--d:2">
+                        <div><dt>The wish</dt><dd>“I want to try yoga.”</dd></div>
+                        <div><dt>The plan</dt><dd>A drop-in beginner class</dd></div>
+                        <div><dt>When &amp; where</dt><dd>Saturday morning, a short walk away</dd></div>
+                        <div><dt>The next step</dt><dd>Directions, or book on the venue’s page</dd></div>
+                    </dl>                </div>
             </div>
         </section>
 
-        <section class="slide" data-slide="6" aria-label="Not a tarpit" hidden>
-            <div class="slide-pad">
-                <p class="meta">05 / Why this is not a tarpit</p>
-                <h2>“Things to do nearby” <em>is a guess.</em></h2>
-                <div class="tarpit">
-                    <p class="pull">Timeleft matched people on shared dreams. It made no money. The founder said dreams stay dreams. One concrete outing format later: ~€18M ARR at $19.99 / month.</p>
-                    <ul>
-                        <li><strong>Your wish, not inferred taste.</strong> Discovery has to guess. We start from the sentence.</li>
-                        <li><strong>One step, not the perfect place.</strong> A place, a price, a link. Or it waits.</li>
-                        <li><strong>The day it is real.</strong> Not a weekly dump of options. The wish stays open until the step exists.</li>
+        <!-- 6 · Why now -->
+        <section class="slide" data-slide="6" aria-label="Why now" hidden>
+            <div class="slide-pad split">
+                <div class="copy">
+                    <p class="kicker a" style="--d:0">Why now</p>
+                    <h2 class="h a" style="--d:1">A vague wish can finally be <em>tied to a real place.</em></h2>
+                    <ol class="points a" style="--d:2">
+                        <li><b>AI reads intention.</b> “Yoga, beginner, near me” becomes a local plan, and only matches places Weesh already knows.</li>
+                        <li><b>Live search is too costly for a free app.</b> Grounding with Google Search costs $14 per 1,000 queries. A shared city catalog stays cheap.</li>
+                    </ol>
+                </div>
+                <div class="visual a" style="--d:2">
+                    <div class="glass bars-card">
+                        <p class="card-label">Share booked online, 2025</p>
+                        <div class="hbar"><span>All travel</span><div><i style="--w:64%"></i></div><b>64%</b></div>
+                        <div class="hbar hbar-hi"><span>Experiences</span><div><i style="--w:33%"></i></div><b>33%</b></div>
+                        <p class="card-note">Experiences are the last big part of travel still mostly offline. Supply is local and fragmented.</p>
+                    </div>
+                    <p class="fine">Arival &amp; Phocuswright, 2026. Gemini API pricing. Ask Maps, in Google Maps since March 2026, shows people already ask this way.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7 · Market -->
+        <section class="slide" data-slide="7" aria-label="Market" hidden>
+            <div class="slide-pad split">
+                <div class="copy">
+                    <p class="kicker a" style="--d:0">Market</p>
+                    <h2 class="h a" style="--d:1">A global market. <em>Entered one city at a time.</em></h2>
+                    <p class="mega a" style="--d:2">$271B</p>
+                    <p class="mega-sub a" style="--d:2">Tours, activities and attractions, worldwide gross bookings, 2025.</p>
+                    <ul class="facts a" style="--d:3">
+                        <li><b>33%</b> booked online</li>
+                        <li><b>Any city</b> same wish everywhere, catalog built locally</li>
                     </ul>
                 </div>
+                <div class="visual a" style="--d:2">
+                    <div class="glass chart-card">
+                        <p class="card-label">Experiences, gross bookings, $B</p>
+                        <div class="cols">
+                            <div style="--h:79.2%"><div class="track"><i><b>$271B</b></i></div><span>2025</span></div>
+                            <div style="--h:84.2%"><div class="track"><i><b>$288B</b></i></div><span>2026</span></div>
+                            <div class="proj" style="--h:100%"><div class="track"><i><b>$342B</b></i></div><span>2029</span></div>
+                        </div>
+                    </div>
+                    <p class="fine">Arival &amp; Phocuswright, July 2026. 2026 and 2029 are projections. Weesh sells the follow-through, not the ticket.</p>
+                </div>
             </div>
         </section>
 
-        <section class="slide" data-slide="7" aria-label="Landscape" hidden>
+        <!-- 8 · Landscape -->
+        <section class="slide" data-slide="8" aria-label="Landscape" hidden>
             <div class="slide-pad">
-                <p class="meta">06 / Landscape</p>
-                <h2>They answer. <em>They do not hold the wish.</em></h2>
-                <ul class="stop">
-                    <li><b>Ask Maps, ChatGPT</b><span>Stops when you close the tab.</span></li>
-                    <li><b>jo</b><span>Stops at ideas on a schedule you set.</span></li>
-                    <li><b>Tilly</b><span>Stops at inferred taste. Invite-only.</span></li>
-                    <li><b>Fever, Eventbrite</b><span>Stops at whatever has a ticket today.</span></li>
-                    <li><b>Timeleft</b><span>Stops at one format: dinner with strangers.</span></li>
-                    <li><b>Bucket-list apps</b><span>Stops at the sentence.</span></li>
-                    <li class="us"><b>Weesh</b><span>Holds the wish until one real step exists.</span></li>
-                </ul>
+                <p class="kicker a" style="--d:0">Landscape</p>
+                <h2 class="h a" style="--d:1">Others help people discover. <em><span class="nw">Follow-through</span> is still open.</em></h2>
+                <div class="lanes a" style="--d:2">
+                    <div class="ln"><b>Ask Maps, ChatGPT</b><span>Answer when you ask. They do not keep a wish from January.</span></div>
+                    <div class="ln"><b>Pinterest, Instagram, TikTok</b><span>Keep the post. The plan is still yours to build.</span></div>
+                    <div class="ln"><b>GetYourGuide, Viator</b><span>Sell ticketed tours. Strong at checkout.</span></div>
+                    <div class="ln"><b>Fever, Eventbrite</b><span>Show what is on sale now.</span></div>
+                    <div class="ln"><b>Timeleft</b><span>One format: dinner with strangers. ~150k monthly users, €18M ARR on their site.</span></div>
+                    <div class="ln ln-weesh"><b><img src="../assets/img/spark.png" alt="" width="18" height="18">Weesh</b><span>Keeps the wish until one real place is ready.</span></div>
+                </div>
+                <p class="answer a" style="--d:3"><b>Why not Google?</b> Google answers the question you type today. Weesh remembers the wish you wrote in January and comes back when there is a plan.</p>
             </div>
         </section>
 
-        <section class="slide s-money" data-slide="8" aria-label="Business" hidden>
+        <!-- 9 · Business model -->
+        <section class="slide" data-slide="9" aria-label="Business model" hidden>
             <div class="slide-pad">
-                <p class="meta">07 / Business</p>
-                <h2>Affiliate when they book. <em>Then $7–10 / month.</em></h2>
+                <p class="kicker a" style="--d:0">Business model</p>
+                <h2 class="h a" style="--d:1">Paid when people go. <em>Then paid to keep going.</em></h2>
                 <div class="money">
-                    <article>
-                        <span>01</span>
-                        <h3>Affiliate, 5–10%</h3>
-                        <p>When the step is bookable: a class, an experience, a ticket. Typical public rates in this category.</p>
+                    <article class="glass a" style="--d:2">
+                        <span class="tag">First</span>
+                        <p class="num">5-10%</p>
+                        <h3>Commission on the step</h3>
+                        <p>When the plan is bookable, like a class, a ticket, or an experience, Weesh earns a referral. Public programs in this category commonly pay 5-10%.</p>
                     </article>
-                    <article>
-                        <span>02</span>
-                        <h3>Subscription, $7–10</h3>
-                        <p>Only after people come back. Timeleft already sells one planned outing a week at $19.99.</p>
+                    <article class="glass is-weesh a" style="--d:3">
+                        <span class="tag">Next</span>
+                        <p class="num">$7-10<small>/mo</small></p>
+                        <h3>Subscription</h3>
+                        <p>For people who come back. Timeleft already sells one planned outing a week at $19.99.</p>
+                    </article>
+                    <article class="glass a" style="--d:4">
+                        <span class="tag">Cost</span>
+                        <p class="num">~$10</p>
+                        <h3>To build a city, once</h3>
+                        <p>Then shared by everyone in it. Cost grows with cities, not users.</p>
                     </article>
                 </div>
-                <p class="fine">The number we can defend is Timeleft, April 2026: ~€18M ARR on ~150,000 monthly users. That is the price proof, not our forecast.</p>
+                <p class="fine a" style="--d:5">Google Maps Platform and Gemini API pricing.</p>
             </div>
         </section>
 
-        <section class="slide" data-slide="9" aria-label="Team" hidden>
-            <div class="slide-pad">
-                <p class="meta">08 / Founder</p>
-                <h2>Vlad Zinchenko</h2>
-                <div class="stats">
-                    <div><b>10</b><span>years full-stack and mobile</span></div>
-                    <div><b>15+</b><span>own apps built and shipped</span></div>
-                    <div><b>25+</b><span>projects on a team</span></div>
+        <!-- 10 · Why it compounds -->
+        <section class="slide" data-slide="10" aria-label="What could compound" hidden>
+            <div class="slide-pad split">
+                <div class="copy">
+                    <p class="kicker a" style="--d:0">Why it compounds</p>
+                    <h2 class="h a" style="--d:1">Every city makes <em>the next one easier.</em></h2>
+                    <p class="lead a" style="--d:2">Each wish teaches Weesh what people want. Each visit teaches it which places deliver.</p>
+                    <p class="fine a" style="--d:3">The catalog is shared across a city. The wish list stays with the person.</p>
+                </div>
+                <div class="visual a" style="--d:2">
+                    <div class="wheel">
+                        <svg class="wheel-ring" viewBox="0 0 400 400" aria-hidden="true">
+                            <defs><linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ebeff"/><stop offset="1" stop-color="#1373fe"/></linearGradient></defs>
+                            <circle cx="200" cy="200" r="150" fill="none" stroke="url(#ring)" stroke-width="2" stroke-dasharray="6 10"/>
+                        </svg>
+                        <div class="wheel-core"><img src="../assets/img/icon-256.png" alt="" width="84" height="84"></div>
+                        <div class="wn wn-1"><b>Intent</b><span>Wishes people wrote themselves</span></div>
+                        <div class="wn wn-2"><b>Places</b><span>The ones that actually matched</span></div>
+                        <div class="wn wn-3"><b>Proof</b><span>Where facts came from, how fresh</span></div>
+                        <div class="wn wn-4"><b>Outcome</b><span>What they opened, skipped, or did</span></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="slide s-title s-end" data-slide="10" aria-label="Raise" hidden>
-            <div class="slide-pad">
-                <h2>Wish lists stop being lists.</h2>
-                <p class="who">A good year is what you did, not what you saved.</p>
-                <a class="mail" href="mailto:dev.ohmyapp@gmail.com?subject=Weesh">dev.ohmyapp@gmail.com</a>
+        <!-- 11 · Founder -->
+        <section class="slide" data-slide="11" aria-label="Founder" hidden>
+            <div class="slide-pad split">
+                <div class="copy">
+                    <p class="kicker a" style="--d:0">Founder</p>
+                    <h2 class="h a" style="--d:1">I am the user. <em>And I can build it.</em></h2>
+                    <blockquote class="quote a" style="--d:2">Every December I write a list for the next year. Every December I find the old one, and almost nothing on it happened. So I left my job in August to build Weesh.</blockquote>
+                    <p class="who a" style="--d:3"><b>Vlad Zinchenko</b> · Founder</p>
+                </div>
+                <div class="visual">
+                    <div class="tiles">
+                        <div class="glass a" style="--d:2"><b>10 yrs</b><span>Software engineer, full-stack and mobile.</span></div>
+                        <div class="glass a" style="--d:3"><b>10+</b><span>Own iOS apps, built and shipped solo.</span></div>
+                        <div class="glass is-weesh a" style="--d:4"><b>Live</b><span>Working iOS prototype.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12 · Ask -->
+        <section class="slide s-end" data-slide="12" aria-label="Ask" hidden>
+            <div class="slide-pad center">
+                <img class="final-icon a" style="--d:0" src="../assets/img/icon-256.png" alt="" width="88" height="88">
+                <h2 class="display a" style="--d:1">People have things they want to do. <em>Weesh helps them do them.</em></h2>
+                <p class="raise a" style="--d:2">Raising a pre-seed to reach:</p>
+                <ol class="ask a" style="--d:3">
+                    <li><b>01</b><span>Live in the first cities</span></li>
+                    <li><b>02</b><span>Proof people act on their steps, every month</span></li>
+                    <li><b>03</b><span>First booking partner and first revenue</span></li>
+                </ol>
+                <div class="end-actions a" style="--d:4">
+                    <a class="btn btn-glow" href="mailto:dev.ohmyapp@gmail.com?subject=Weesh">Email the founder</a>
+                    <span class="mail">dev.ohmyapp@gmail.com</span>
+                </div>
             </div>
         </section>
     </main>
@@ -191,7 +336,9 @@
         <button type="button" id="next" aria-label="Next slide">→</button>
     </nav>
 
+    <script src="../assets/js/data.js"></script>
     <script src="../assets/js/analytics.js"></script>
+    <script src="../assets/js/pitch-art.js"></script>
     <script src="../assets/js/pitch.js"></script>
 </body>
 </html>
