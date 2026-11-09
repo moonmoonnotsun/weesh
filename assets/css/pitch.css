@@ -241,8 +241,16 @@ body.pitch {
 .ln-weesh { background: linear-gradient(120deg, #1373fe, #2c78fa 55%, #5ba3ff); border: 0; box-shadow: 0 24px 50px -22px rgba(19, 115, 254, .8); }
 .ln-weesh b { font-size: 20px; }
 .ln-weesh span { color: #fff; font-size: 16px; font-weight: 500; }
-.answer { margin: 22px 0 0; padding: 18px 22px; border-radius: 18px; background: #fff; color: var(--ink); font-size: 17px; line-height: 1.5; max-width: none; }
-.answer b { color: var(--blue-2); margin-right: 6px; }
+.answer {
+    margin: 22px 0 0; padding: 18px 24px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, rgba(44, 120, 250, .18), rgba(127, 160, 255, .05));
+    border: 1px solid rgba(160, 190, 255, .2);
+    box-shadow: inset 3px 0 0 #5ba3ff;
+    color: rgba(236, 242, 255, .82);
+    font-size: 17px; line-height: 1.5; max-width: none;
+}
+.answer b { color: #fff; margin-right: 6px; }
 
 /* ---------- 9 · business ---------- */
 .money { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
